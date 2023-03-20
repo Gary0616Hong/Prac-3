@@ -1,13 +1,19 @@
-#include<iostream>
-extern void copy_doubles(double *old_array,double *new_array,int length) ;
+#include <iostream>
+#include "Person.h"
 
-int main(){
-    double a[3]={1.1,2.2,3.3};
-    double b[3];
-    copy_doubles(a,b,3);
-    for(int i=0;i<3;i++){
-        std::cout<<b[i]<<' ';
-    }
-    
+int main() {
+    // create a person list with 3 people
+    PersonList pl1 = createPersonList(3);
+
+    // make a shallow copy of the list
+    PersonList pl2 = shallowCopyPersonList(pl1);
+
+    // modify the age of the first person in the copy
+    pl2.people[0].age = 10;
+
+    // print out the ages of the first people in the original and copy
+    std::cout << "Original: " << pl1.people[0].age << std::endl;
+    std::cout << "Copy: " << pl2.people[0].age << std::endl;
+
     return 0;
 }

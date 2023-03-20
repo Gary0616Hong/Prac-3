@@ -1,7 +1,8 @@
-#include<iostream>
+#include "Person.h"
 
-void copy_doubles(double *old_array,double *new_array,int length) {
-    for(int i=0;i<length;i++){
-        *(new_array+i)=*(old_array+i);
-    }
+PersonList shallowCopyPersonList(PersonList pl) {
+    PersonList newList;
+    newList.numPeople = pl.numPeople;
+    newList.people = pl.people;
+    return newList;
 }
